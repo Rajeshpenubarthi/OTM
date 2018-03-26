@@ -1,6 +1,7 @@
 package com.overtamilmatrinmony.core.mailer.model;
 
 import java.io.Serializable;
+import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Service;
 
@@ -17,7 +19,9 @@ import org.springframework.stereotype.Service;
 public class MailDetail implements Serializable
 	{
 
-		@Id
+	@Transient
+	private Map<String, Object> model;
+    	@Id
 		@Column(name = "MAILID")
 		@GeneratedValue(strategy = GenerationType.SEQUENCE)
 		private long mailId;
@@ -37,6 +41,13 @@ public class MailDetail implements Serializable
 		@Column(name = "SEND")
 		private boolean send;
 
+		/*@Column(name = "FROM")
+	    private String from;
+	    */
+		@Column(name = "SUBJECT")
+	    private String subject;
+	    
+		
 		public String getTo()
 			{
 				return to;
@@ -96,6 +107,22 @@ public class MailDetail implements Serializable
 			{
 				this.send = send;
 			}
+
+		public String getSubject() {
+			return subject;
+		}
+
+		public void setSubject(String subject) {
+			this.subject = subject;
+		}
+
+		public Map<String, Object> getModel() {
+			return model;
+		}
+
+		public void setModel(Map<String, Object> model) {
+			this.model = model;
+		}
 
 		@Override
 		public String toString()
