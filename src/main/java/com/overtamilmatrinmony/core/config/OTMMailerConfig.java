@@ -31,12 +31,12 @@ public class OTMMailerConfig
 
 		
 		@Bean
-	    public JavaMailSender getMailSender(){
+	    public JavaMailSenderImpl getMailSender(){
 	        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
 	         
 	        //Using gmail
 	        mailSender.setHost(env.getProperty("domain"));
-	        mailSender.setPort(Integer.parseInt(env.getProperty("post")));
+	        mailSender.setPort(Integer.parseInt(env.getProperty("port")));
 	        mailSender.setUsername(env.getProperty("userId"));
 	        mailSender.setPassword(env.getProperty("password"));
 	         

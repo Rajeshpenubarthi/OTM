@@ -9,7 +9,7 @@ public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServl
 		protected Class<?>[] getRootConfigClasses()
 			{
 				return new Class[]
-					{ OTMConfig.class,OTMMailerConfig.class };
+					{ OTMMailerConfig.class,ThymeleafConfig.class,OTMConfig.class };
 			}
 
 		@Override
